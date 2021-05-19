@@ -64,4 +64,5 @@ group :development, :test do
   gem 'better_errors'
   gem 'guard'
   gem 'guard-livereload'
+  gem 'rails_db'
 end
