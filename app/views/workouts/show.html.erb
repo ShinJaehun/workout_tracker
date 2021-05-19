@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
+<% content_for :page do %>
+  <h1 class="title is-1"><%= @workout.title %></h1>
+  <p><%= verbose_date(@workout.date) %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @workout.title %>
-</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Exercise</th>
+        <th># of Sets</th>
+        <th>Weight</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @workout.exercises.each do |exercise| %>
+      <tr>
+        <td><%= exercise.name %></td>
+        <td><%= exercise.sets %></td>
+        <td><%= exercise.weight %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 
-<p>
-  <strong>Date:</strong>
-  <%= @workout.date %>
-</p>
+  <%= link_to 'Edit Workout', edit_workout_path(@workout), class: "button mt4"  if workout_author(@workout) %>
+<% end %>
+<%= render 'page_template' %>
 
-<%= link_to 'Edit', edit_workout_path(@workout) %> |
-<%= link_to 'Back', workouts_path %>
