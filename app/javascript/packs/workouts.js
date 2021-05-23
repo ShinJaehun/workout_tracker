@@ -1,4 +1,3 @@
-// app/javascript/application.js
 import Vue from 'vue/dist/vue.esm'
 import VueResource from 'vue-resource'
 
